@@ -2,19 +2,19 @@ import Image from "next/image";
 
 const products = [
     {
-        name: "Premium Waka",
+        name: "1 kg Kava",
         image: "/product1.jpg",
-        price: "$29.99"
+        price: "Fjd 150"
     },
     {
-        name: "Instant Kava",
+        name: "1/2 kg kava",
         image: "/product2.jpg",
-        price: "$34.99"
+        price: "Fjd 75"
     },
     {
-        name: "Family Pack",
+        name: "Trial pack",
         image: "/product3.jpg",
-        price: "$49.99"
+        price: "Fjd 10"
     }
 ];
 
