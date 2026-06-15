@@ -11,7 +11,7 @@ export default function Contact() {
     >
         {/* Background glow */} <div className="absolute top-0 left-0 w-[400px] h-[400px] rounded-full bg-[#C89B3C]/10 blur-[160px]" /> <div className="absolute bottom-0 right-0 w-[500px] h-[500px] rounded-full bg-[#C89B3C]/5 blur-[180px]" />
 
-        ```
+
         <div className="container-custom relative z-10">
             <span className="block text-center text-[#C89B3C] uppercase tracking-[5px] text-sm mb-4">
                 Get In Touch
