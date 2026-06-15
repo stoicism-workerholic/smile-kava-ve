@@ -2,59 +2,146 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { Menu } from "lucide-react";
+import { Menu, X } from "lucide-react";
 import { useState } from "react";
 
 export default function Navbar() {
     const [open, setOpen] = useState(false);
 
-    return (
-        <nav className="fixed top-0 left-0 w-full z-50 glass">
-            <div className="container-custom px-6 py-4 flex items-center justify-between">
+    const navLinks = [
+        { name: "About", href: "#about" },
+        { name: "Benefits", href: "#benefits" },
+        { name: "Products", href: "#products" },
+        { name: "Contact", href: "#contact" },
+    ];
 
-                <Link href="/" className="flex items-center gap-3">
-                    <Image
-                        src="/logo.png"
-                        alt="Smile Kava"
-                        width={50}
-                        height={50}
-                        className="rounded-full"
-                    />
-                    <span className="font-bold text-xl gold-text">
-                        Smile Kava
-                    </span>
-                </Link>
+    return (<nav
+        className="
+     fixed
+     top-0
+     left-0
+     w-full
+     z-50
+     border-b
+     border-white/10
+     bg-black/20
+     backdrop-blur-xl
+   "
+    > <div className="container-custom"> <div className="flex items-center justify-between py-4">
+        {/* Logo */} <Link
+            href="/"
+            className="flex items-center gap-4"
+        > <Image
+                src="/logo.png"
+                alt="Smile Kava"
+                width={56}
+                height={56}
+                className="rounded-full"
+                priority
+            />
 
-                <div className="hidden md:flex gap-8 items-center">
-                    <a href="#about">About</a>
-                    <a href="#benefits">Benefits</a>
-                    <a href="#products">Products</a>
-                    <a href="#contact">Contact</a>
+
+            <div>
+                <h1 className="text-2xl font-semibold text-[#C89B3C]">
+                    Smile Kava
+                </h1>
+
+                <p className="text-xs uppercase tracking-[3px] text-gray-400">
+                    Premium Fiji Noble Kava
+                </p>
+            </div>
+        </Link>
+
+        {/* Desktop Menu */}
+        <div className="hidden md:flex items-center gap-10">
+            {navLinks.map((link) => (
+                <a
+                    key={link.name}
+                    href={link.href}
+                    className="
+              text-gray-200
+              transition
+              duration-300
+              hover:text-[#C89B3C]
+            "
+                >
+                    {link.name}
+                </a>
+            ))}
+
+            <a
+                href="#products"
+                className="btn-primary font-semibold"
+            >
+                Shop Now
+            </a>
+        </div>
+
+        {/* Mobile Button */}
+        <button
+            onClick={() => setOpen(!open)}
+            className="
+          md:hidden
+          flex
+          items-center
+          justify-center
+          h-12
+          w-12
+          rounded-full
+          bg-white/5
+          border
+          border-white/10
+        "
+        >
+            {open ? (
+                <X size={24} />
+            ) : (
+                <Menu size={24} />
+            )}
+        </button>
+    </div>
+        </div>
+
+        {/* Mobile Menu */}
+        <div
+            className={`
+      md:hidden
+      overflow-hidden
+      transition-all
+      duration-300
+      ${open ? "max-h-[400px]" : "max-h-0"}
+    `}
+        >
+            <div className="border-t border-white/10 bg-black/80 backdrop-blur-xl">
+                <div className="container-custom py-6 flex flex-col gap-6">
+                    {navLinks.map((link) => (
+                        <a
+                            key={link.name}
+                            href={link.href}
+                            onClick={() => setOpen(false)}
+                            className="
+              text-lg
+              text-gray-200
+              transition
+              hover:text-[#C89B3C]
+            "
+                        >
+                            {link.name}
+                        </a>
+                    ))}
 
                     <a
                         href="#products"
-                        className="btn-primary font-semibold"
+                        onClick={() => setOpen(false)}
+                        className="btn-primary text-center"
                     >
                         Shop Now
                     </a>
                 </div>
-
-                <button
-                    className="md:hidden"
-                    onClick={() => setOpen(!open)}
-                >
-                    <Menu />
-                </button>
             </div>
+        </div>
+    </nav>
 
-            {open && (
-                <div className="md:hidden bg-black p-6 space-y-4">
-                    <a href="#about" className="block">About</a>
-                    <a href="#benefits" className="block">Benefits</a>
-                    <a href="#products" className="block">Products</a>
-                    <a href="#contact" className="block">Contact</a>
-                </div>
-            )}
-        </nav>
+
     );
 }
