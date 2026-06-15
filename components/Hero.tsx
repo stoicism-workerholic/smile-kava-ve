@@ -52,7 +52,7 @@ export default function Hero() {
                     transition={{ delay: .4 }}
                     className="text-xl md:text-2xl text-white/80 mt-4"
                 >
-                    Roots To Heaven
+                    Small money, big Dopes.
                 </motion.p>
 
                 <motion.p
@@ -63,6 +63,8 @@ export default function Hero() {
                 >
                     Premium Fiji Noble Kava crafted for relaxation,
                     connection, and tradition.
+
+
                 </motion.p>
 
                 <motion.div

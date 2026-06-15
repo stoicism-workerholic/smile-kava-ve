@@ -43,6 +43,7 @@ export default function Products() {
                                     alt={product.name}
                                     width={600}
                                     height={600}
+                                    priority={product.name === "1 kg Kava"}
                                     className="w-full h-[350px] object-cover group-hover:scale-110 transition duration-500"
                                 />
                             </div>
