@@ -103,9 +103,9 @@ export default function Products() {
                                     {product.price}
                                 </span>
 
-                                <button className="btn-primary">
+                                <a href="#contact" className="btn-primary">
                                     Order Now
-                                </button>
+                                </a>
                             </div>
                         </div>
                     </div>
