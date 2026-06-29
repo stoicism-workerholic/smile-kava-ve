@@ -103,6 +103,20 @@ export default function Contact() {
                             </div>
                         </div>
                     </div>
+
+                    {/* Google Map */}
+                    <div className="mt-10">
+                        <iframe
+                            title="Smile Kava Location"
+                            src="https://www.google.com/maps?q=-18.105831,178.463709&z=16&output=embed"
+                            width="100%"
+                            height="280"
+                            loading="lazy"
+                            allowFullScreen
+                            referrerPolicy="no-referrer-when-downgrade"
+                            className="rounded-2xl border border-white/10"
+                        />
+                    </div>
                 </div>
 
                 {/* Contact Form */}
